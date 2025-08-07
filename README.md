@@ -17,7 +17,7 @@ For Back-end:
 📌HOW TO RUN THE APP:
 1. Clone the repository from github
 
-   Open visual studio and bash `git clone https://github.com/hamza-younes/All-in-project`
+   Open visual studio and bash `git clone https://github.com/hamza-younes/All-in-project.git`
 
 2. Navigate to the front-end folder `cd front-end`.
 
