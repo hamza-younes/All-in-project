@@ -1,0 +1,46 @@
+<div class="px-6 md:px-10 mt-10">
+
+  <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+    <h2 class="text-4xl md:text-5xl text-yellow-400 mb-4 md:mb-0 font-bold">
+      Players of the Month
+    </h2>
+    <button routerLink="/add"
+      class="bg-green-600 hover:bg-green-700 text-white text-lg md:text-2xl font-medium py-2 px-6 rounded-lg transition duration-200">
+       Add New Player
+    </button>
+  </div>
+
+  <div class="overflow-x-auto shadow-lg rounded-lg">
+    <table class="min-w-full text-center border-collapse bg-white rounded-md overflow-hidden">
+      <thead class="bg-gray-900 text-white text-3xl">
+        <tr>
+          <th class="px-6 py-4 border-b border-gray-300">Name</th>
+          <th class="px-6 py-4 border-b border-gray-300">Rank</th>
+          <th class="px-6 py-4 border-b border-gray-300">Total Games</th>
+          <th class="px-6 py-4 border-b border-gray-300">Followers</th>
+          <th class="px-6 py-4 border-b border-gray-300">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-800 text-2xl bg-yellow-50">
+        @for (user of users; track $index) {
+          <tr class="hover:bg-yellow-100">
+            <td class="px-6 py-4 border-b border-r border-gray-200 font-semibold">{{user.name}}</td>
+            <td class="px-6 py-4 border-b border-r border-gray-200">{{user.ranks}}</td>
+            <td class="px-6 py-4 border-b border-r border-gray-200">{{user.totalGames}}</td>
+            <td class="px-6 py-4 border-b border-r border-gray-200">{{user.followers}}</td>
+            <td class="px-6 py-4 border-b border-r border-gray-200 space-x-2">
+              <button [routerLink]="['/edit', user.id]"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-md">
+                 Edit
+              </button>
+              <button (click)="deleteUser(user.id)"
+                class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-md">
+                 Delete
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
